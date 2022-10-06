@@ -79,5 +79,9 @@ pip install everything BERT needs
 cp /mnt/c/Users/User.DESKTOP-ESIMPBC/no_time.py /tmp/pycpu/
 
 ```
-
+change transformers
+```
+cd ~/.local/lib/python3.8/site-packages
+cp /mnt/c/Users/User.DESKTOP-ESIMPBC/anaconda3/envs/pycpu/Lib/site-packages/transformers/models/bert/modeling_bert.py ~/.local/lib/python3.8/site-packages/transformers/
+```
    
