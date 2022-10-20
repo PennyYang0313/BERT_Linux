@@ -94,3 +94,7 @@ chmod 777 /tmp/ramdisk
 mount -t tmpfs -o size=8G tmpfs /tmp/ramdisk/
 df -h
 ```
+### re-mount degubfs (如果找不到 /sys/kernel/debug)
+```
+sudo  mount -t debugfs none /sys/kernel/debug
+```
