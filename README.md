@@ -85,3 +85,12 @@ cd ~/.local/lib/python3.8/site-packages
 cp /mnt/c/Users/User.DESKTOP-ESIMPBC/anaconda3/envs/pycpu/Lib/site-packages/transformers/models/bert/modeling_bert.py ~/.local/lib/python3.8/site-packages/transformers/
 ```
    
+   
+### Linux make ramdisk
+```
+sudo -i
+mkdir /tmp/ramdisk
+chmod 777 /tmp/ramdisk
+mount -t tmpfs -o size=8G tmpfs /tmp/ramdisk/
+df -h
+```
