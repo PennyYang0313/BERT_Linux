@@ -98,3 +98,8 @@ df -h
 ```
 sudo  mount -t debugfs none /sys/kernel/debug
 ```
+
+### stat
+```
+nohup vmstat 5 60| (while read; do echo "$(date +%d-%m-%Y" "%H:%M:%S) $REPLY"; done) >> /tmp/pycpu/vmstat_output.log
+```
