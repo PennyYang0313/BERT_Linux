@@ -74,10 +74,25 @@ cd /mnt/c/Users/User.DESKTOP-ESIMPBC
   ```
 ### No Anaconda
 ``` 
+sudo apt-get update
+sudo apt-get upgrade
 sudo apt install python3-pip
-pip install everything BERT needs
 cp /mnt/c/Users/User.DESKTOP-ESIMPBC/no_time.py /tmp/pycpu/
+```
 
+### pip install everything BERT needs
+```
+pip install torch 
+pip install memory_profiler
+pip install datetime
+pip install tqdm
+pip install prettytable
+pip install datasets
+pip install accelerate
+pip install transformers
+pip install scipy sklearn
+pip install sklearn
+python3 -m pip install scikit-learn
 ```
 change transformers
 ```
