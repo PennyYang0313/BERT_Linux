@@ -118,3 +118,55 @@ sudo  mount -t debugfs none /sys/kernel/debug
 ```
 nohup vmstat 5 60| (while read; do echo "$(date +%d-%m-%Y" "%H:%M:%S) $REPLY"; done) >> /tmp/pycpu/vmstat_output.log
 ```
+
+### Bert Libotrch version
+
+ * [Cmake](https://pytorch.org/tutorials/advanced/cpp_export.html) 
+```
+sudo apt install cmake
+mkdir /tmp/example-app
+cp /mnt/c/Users/User.DESKTOP-ESIMPBC/example-app/example-app.cpp /tmp/example-app/
+cp /mnt/c/Users/User.DESKTOP-ESIMPBC/example-app/CMakeLists.txt /tmp/example-app/
+
+cd /tmp/example-app
+mkdir build
+cd build
+cmake -DCMAKE_PREFIX_PATH=/tmp/libtorch .. (if error >>> sudo apt-get update && sudo apt-get install -y build-essential)
+cmake --build . --config Release
+```
+* Bert model for torch script
+```
+cp /mnt/c/Users/User.DESKTOP-ESIMPBC/bert.py /tmp/pycpu/
+cd /tmp/pycpu/
+
+sudo apt install python3-pip
+pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
+pip install pytorch_pretrained_bert
+python3 bert.py (跑出pt檔)
+```
+
+* Exec
+```
+cd /tmp/example-app/build
+(改bert code) cp /mnt/c/Users/User.DESKTOP-ESIMPBC/bert.py /tmp/pycpu/
+(改c++) cp /mnt/c/Users/User.DESKTOP-ESIMPBC/example-app/example-app.cpp /tmp/example-app/
+make
+./example-app /tmp/pycpu/traced_bert.pt
+```
+
+* test
+```
+cp /mnt/c/Users/User.DESKTOP-ESIMPBC/bert_libtorch.py /tmp/pycpu/
+cp /mnt/c/Users/User.DESKTOP-ESIMPBC/example-app/example-app.cpp /tmp/example-app/
+cd /tmp/pycpu/
+python3 bert_libtorch.py
+cd /tmp/example-app/build/
+make
+./example-app /tmp/pycpu/script_model.pt
+```
+
+* backward
+```
+bertmodel backward ?
+有loss才有backward?
+```
