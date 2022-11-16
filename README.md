@@ -167,6 +167,5 @@ make
 
 * backward
 ```
-bertmodel backward ?
-有loss才有backward?
+bertmodel backward
 ```
